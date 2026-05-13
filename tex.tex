@@ -1,0 +1,165 @@
+Agenda Pro — Documento de Escopo MVP v1.0
+1. Visão Geral do Produto
+O Agenda Pro é um aplicativo mobile para profissionais autônomas (manicures, lash designers, confeiteiras, entre outras) que precisam organizar seus agendamentos e manter comunicação com clientes pelo WhatsApp — sem mudar a forma como trabalham.
+O produto resolve três dores centrais:
+Perder tempo respondendo mensagens e anotando na agenda de papel
+Esquecer de enviar lembretes para as clientes antes dos atendimentos
+Não ter aviso antecipado sobre os próprios compromissos do dia
+Informações do Produto
+Campo
+Informação
+Produto
+Agenda Pro — Aplicativo Mobile
+Plataforma
+iOS e Android (React Native ou Flutter)
+Versão
+MVP v1.0
+Público-alvo
+Profissionais autônomas de beleza e serviços pessoais
+Modelo
+Freemium — Gratuito com limite + Plano Pro R$29/mês
+
+
+2. Problema que Resolve
+A Ana, manicure autônoma com 8 atendimentos por dia, hoje gerencia tudo manualmente: responde no WhatsApp, anota na agenda de papel e ainda precisa lembrar de mandar mensagem na véspera. São 8 conversas separadas, 8 anotações e muita coisa caindo no esquecimento.
+O que o Agenda Pro muda na rotina dela
+Cria agendamentos em menos de 30 segundos
+Recebe notificação no celular antes de cada atendimento, no intervalo que ela mesma configurou
+Envia lembrete para a cliente com um toque, sem digitar nada
+Mantém o controle — o envio é feito por ela, mas sem esforço
+
+3. Funcionalidades do MVP
+3.1 Cadastro e Onboarding
+Cadastro com nome, tipo de serviço e serviços oferecidos com preços
+Onboarding em menos de 5 minutos
+Configuração do intervalo de notificações pessoais (1 dia antes, 2 horas antes, ou ambos)
+
+3.2 Agenda Principal
+Tela principal com vista de dia e semana
+Lista de horários em ordem cronológica, estilo agenda de papel
+Criação de agendamento: selecionar dia, hora, serviço e nome da cliente
+Edição e cancelamento de agendamentos
+
+3.3 Notificações para a Profissional
+Funcionalidade central do MVP. A profissional configura, nas preferências, com quanto tempo de antecedência quer ser avisada sobre cada atendimento.
+Push notification local — sem servidor, funciona offline
+Configuração global: 1 dia antes, 2 horas antes, ou ambos
+Ao tocar na notificação, o app abre direto no agendamento correspondente
+A tela do agendamento já exibe o botão de envio de lembrete para a cliente — um fluxo único
+Exemplo de notificação
+“Amanhã às 10h — Manicure com Maria Clara”
+Ao tocar: abre o agendamento + botão para enviar lembrete para a Maria Clara.
+
+3.4 Lembretes para a Cliente via WhatsApp
+O MVP utiliza dois caminhos de envio, definidos pelo plano da profissional:
+Plano Gratuito — Link Manual
+O app gera a mensagem pronta e abre o WhatsApp da profissional com o texto já preenchido. Ela só toca em enviar.
+Sem API, sem custo por mensagem
+Funciona com o número pessoal da profissional
+A profissional mantém o controle — zero risco de envio errado
+Tecnologia: link wa.me nativo do WhatsApp
+
+Plano Pro — WhatsApp Business API
+A profissional conecta um número Business ao app. As mensagens são enviadas automaticamente no horário certo, sem nenhuma ação necessária.
+Aprovação de templates junto à Meta
+150 mensagens/mês incluídas no plano
+Envio automático — zero ação necessária da profissional
+Número dedicado, separado do pessoal
+
+Templates incluídos no MVP
+Confirmação de agendamento
+“Oi [nome]! Tudo certo, seu horário de [serviço] está confirmado para [dia] às [hora]. Qualquer coisa é só chamar!”
+Lembrete 24h antes
+“Oi [nome]! Passando pra lembrar do seu [serviço] amanhã às [hora]. Te espero!”
+Confirmação de presença
+“Perfeito! Te aguardo amanhã.”
+No plano Pro, todos os templates são editáveis. O app salva a versão personalizada como padrão.
+
+4. Estrutura de Planos
+Funcionalidade
+Gratuito
+Pro — R$29/mês
+Agendamentos por mês
+Até 30
+Ilimitados
+Clientes cadastrados
+Até 20
+Ilimitados
+Notificações para a profissional
+Configurável
+Configurável
+Lembrete via link WhatsApp (manual)
+Incluído
+Incluído
+Mensagens automáticas (WhatsApp API)
+—
+150 msg/mês incluídas
+Templates editáveis
+2 fixos
+Ilimitados
+Histórico de clientes
+—
+Incluído
+Suporte prioritário
+—
+Incluído
+
+Lógica de Upgrade
+A profissional começa grátis, usa no dia a dia e quando atingir o limite ou quiser automação total, o upgrade para o Pro acontece de forma natural — ela já percebeu o valor do produto.
+
+5. Telas do MVP
+Tela
+Descrição
+Onboarding
+Cadastro de nome, tipo de serviço, serviços e preços. Configuração inicial das notificações pessoais
+Agenda — Vista de Dia
+Lista de horários do dia em ordem. Botão de adicionar agendamento
+Agenda — Vista de Semana
+Visão semanal compacta para identificar dias cheios e lacunas
+Criar Agendamento
+Selecionar data, hora, serviço e nome da cliente
+Detalhe do Agendamento
+Ver dados do horário. Botões: Enviar lembrete / Editar / Cancelar
+Perfil e Configurações
+Editar serviços, preços e intervalo de notificações pessoais
+Upgrade para Pro
+Tela de comparação de planos com call-to-action para assinatura
+
+
+6. Fora do Escopo do MVP
+Itens intencionalmente excluídos para garantir velocidade de lançamento e validação:
+Relatórios de receita por serviço ou horário
+Sugestões automáticas de reengajamento
+Agendamento online pela cliente (self-booking)
+Múltiplos profissionais no mesmo app
+Integração com pagamentos (Pix, cartão)
+Templates de cobrança e pós-atendimento
+
+7. Métricas de Sucesso do MVP
+Métrica
+Objetivo
+Ativação
+Profissional cria ao menos 3 agendamentos na primeira semana
+Retenção D7
+Mais de 50% das usuárias abrem o app na segunda semana
+Conversão
+Ao menos 5% fazem upgrade para Pro em 30 dias
+Satisfação
+NPS acima de 40 após 30 dias de uso
+Hábito
+Usuária ativa abre o app pelo menos 4 vezes por semana
+
+
+8. Principais Riscos e Mitigações
+Risco
+Mitigação
+A profissional não cria o hábito de abrir o app
+A notificação pessoal traz ela de volta ao app toda vez que tem atendimento
+Resistência à mudança da agenda de papel
+O app imita a lógica da agenda tradicional: simples e sem complexidade
+Custo da WhatsApp API afastar usuárias do Pro
+O plano gratuito já entrega valor real; a API é um upgrade opcional
+Aprovação de templates pela Meta demorar
+Lançamento inicial apenas com link manual; API ativada gradualmente
+
+

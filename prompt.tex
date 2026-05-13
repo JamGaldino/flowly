@@ -1,0 +1,54 @@
+Redesign the weekly calendar day-selector component for a beauty salon scheduling app (Portuguese BR). 
+The component shows 7 days (SEG to DOM) in a horizontal row.
+
+APPOINTMENT COLOR RULES (must be reflected in day cards):
+- Purple #6C3FDB = Confirmed appointment
+- Yellow/Amber #F5A623 = Waiting/Pending
+- Green #2ECC71 = Present/Attended  
+- Red #E74C3C = Cancelled
+
+DESIGN REQUIREMENTS FOR EACH DAY CARD:
+
+1. **Base card**: Rounded pill or tall rounded rectangle. Background lavender #EDE8FB. 
+   Size: ~48px wide, 90px tall.
+
+2. **Day abbreviation**: Top, small caps, muted color (e.g. #9B8EC4), 10px.
+
+3. **Day number**: Center, bold, large (22px), dark #2D1B69.
+
+4. **Appointment indicator area** (bottom of card):
+   - If 0 appointments: empty / faint dash
+   - If 1 appointment: show 1 colored dot (color = appointment status)
+   - If 2+ appointments: show stacked small colored dots OR a mini 
+     segmented bar with each appointment's status color
+   - Max show 3 dots, then "+N" badge if more
+
+5. **Selected day state**: 
+   - Full purple background #6C3FDB
+   - White text for abbreviation and number
+   - Dots become white-outlined colored fills
+   - Subtle drop shadow: 0 8px 20px rgba(108,63,219,0.35)
+   - Slight scale up: 1.05x
+
+6. **Today indicator**: 
+   - Small white underline dot below the number (even when not selected)
+
+7. **Spacing**: 6px gap between cards. Cards have 10px horizontal padding inside.
+
+8. **Animation**: Selected card smoothly transitions with 200ms ease.
+
+EXAMPLE STATE TO RENDER:
+- SEG 11: 0 appts (empty)
+- TER 12: 0 appts (empty)
+- QUA 13: 0 appts (empty)
+- QUI 14: 1 appt CONFIRMED (1 purple dot) — selected state
+- SEX 15: 2 appts — 1 CANCELLED (red dot) + 1 WAITING (yellow dot) — today
+- SÁB 16: 0 appts
+- DOM 17: 0 appts
+
+Color palette: primary #6C3FDB, bg #EDE8FB, today accent #F5A623, 
+confirmed #6C3FDB, waiting #F5A623, present #2ECC71, cancelled #E74C3C.
+
+Output: mobile component 375px wide, horizontal scroll if needed, 
+pixel-perfect spacing, no text labels for appointment count — 
+use ONLY colored dots/bars.
